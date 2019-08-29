@@ -9,6 +9,9 @@
 | Set Home          | ```G28```           |
 | Bed Leveling      | ```G29```           |
 
+---
+---
+---
 
 # 1)Set Slicer Profile
 
@@ -27,10 +30,7 @@
 # 2)set printer
 
 ### Go on Gcode Terminal
-![alt text](http://www.marvinstuart.com/wp-content/uploads/OctoPrint/screenshot-terminal.png)
-
-
-##### (warm the bed and the nozzle to the desired temperature)  
+![alt text](http://www.marvinstuart.com/wp-content/uploads/OctoPrint/screenshot-terminal.png) 
 
 ##### 1) Set 3D print Home on entering ``` G28 ```  
 
@@ -47,3 +47,5 @@ To pass a paper under the nozzle if the catch and perfect to pass to step 3, if 
 -> ```M500``` for Save and ```M501``` for applied
 
 ## Finish
+
+---
