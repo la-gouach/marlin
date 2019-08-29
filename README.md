@@ -15,7 +15,7 @@
 
 # 1)Set Slicer Profile
 
-->Dowload Basic-Profile for Cr10s 5 and Pla Or add ```M501``` After ```G28``` on your Profile
+->Dowload Basic-Profile for Cr10s 5 and Pla Or add ```M501``` before ```G28``` and ```M420 S1``` After on your profile
 
 ---
 
