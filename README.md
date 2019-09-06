@@ -8,44 +8,43 @@
 | Unlock Axis Limit | ```M211 S0```       |
 | Set Home          | ```G28```           |
 | Bed Leveling      | ```G29```           |
+| Use saved Bed Leveling|  ```M420 S1```       |
+| More logs|  ```M111 S247```       |
 
----
----
----
+### Nozzle offset
 
-# 1)Set Slicer Profile
+To configure the nozzle-probe offset here is the protocol:
 
-->Dowload Basic-Profile for Cr10s 5 and Pla Or add ```M501``` before ```G28``` and ```M420 S1``` After on your profile
+- `G28` Home the Z axis
+- `M280` P0 S10 Raise Z and deploy the probe.
+- `M211 S0` unlock z
+- Move Z down slowly until the probe triggers.
+- Take the current Z=16.9
+- Move Z with a paper under the nozzle until it touches slightly
+- take current Z value Z=13.3 
+- your offset is the difference between the two: 3.6
+- Set with `M851 Z-3.6` and #define Z_PROBE_OFFSET_FROM_EXTRUDER -3.5 in marlin code
 
----
+### Bed leveling
 
-# !!! prerequisites !!! 
+To do the bed leveling once
 
-##### heat the bed and the nozzle to the desired temperature
+- set the bed temperature and wait for the bed to warm up
+- `G29` do the autmatic bed leveling
+- `M500` save it
+- `M501` check the eeprom values
 
-![alt text](https://camo.githubusercontent.com/aa815961f73cb245d6608cca9becabd869124d13/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f3230333932322f313939393937372f36623465343035322d383534652d313165332d383336372d3836653836373462643733332e706e67)
+### Use bed leveling
 
----
+In cura settings for the printer, after G28, add:
 
-# 2)set printer
+```
+M501
+M420 S1
+```
 
-### Go on Gcode Terminal
-![alt text](http://www.marvinstuart.com/wp-content/uploads/OctoPrint/screenshot-terminal.png) 
 
-##### 1) Set 3D print Home on entering ``` G28 ```  
+## Our cura settings
 
-##### 2) Extend the Z axis to 0  
-To pass a paper under the nozzle if the catch and perfect to pass to step 3, if not follow the approach.  
--> Send ```M211 S0``` to unlock the axis limit  
--> move your Z axis so that the nozzle is perfect (Get New Z position)  
--> Use ```M851 Z X.XX``` for set the difference between the sensor and the nozzle (Ex: New_Z = -3.5 -> M851 Z-3.5)
--> Use ```M500``` for register and ```M501``` for applied  
--> Re checked and redone if needed 
 
-##### 3) IF and ONLY IF your bed it's at the good Temperature
--> Launch a Bed-Leveling ```G29```  
--> ```M500``` for Save and ```M501``` for applied
 
-## Finish
-
----
