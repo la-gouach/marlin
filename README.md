@@ -48,3 +48,10 @@ M420 S1
 
 
 
+## install octoprint
+
+https://octoprint.org/download/
+
+install firware updater plugin
+ssh to octopi.local and `apt-get install avrdude``
+thenyou can configure the firmware updater with avrdude and arduino atmega 2560
