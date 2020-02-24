@@ -16,7 +16,6 @@
 To configure the nozzle-probe offset here is the protocol:
 
 - `G28` Home the Z axis
-- `M280` P0 S10 Raise Z and deploy the probe.
 - `M211 S0` unlock z
 - Move Z down slowly until the probe triggers.
 - Take the current Z=16.9
